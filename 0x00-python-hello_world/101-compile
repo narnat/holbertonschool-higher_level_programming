@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir temp; cp $PYFILE ./temp/; cd temp; python -m compileall .
+mv *c ../; cd ..; rm -rf ./temp
