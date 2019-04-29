@@ -1,6 +1,2 @@
 #!/bin/bash
-LETTER="c"
-echo "Compiling $PYFILE ..."
-python3 -m py_compile "$PYFILE"
-mv __pycache__/*.pyc "$PYFILE$LETTER"
-rm -r __pycache__
+python3 -m compileall -b "$PYFILE"
