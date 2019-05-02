@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def func():
+if __name__ == "__main__":
     import sys
     l = len(sys.argv) - 1
     if l == 0:
@@ -10,5 +10,3 @@ def func():
         print("{} arguments:".format(l))
         for i, str in enumerate(sys.argv[1:], start=1):
             print("{}: {}".format(i, str))
-if __name__ == "__main__":
-    func()
