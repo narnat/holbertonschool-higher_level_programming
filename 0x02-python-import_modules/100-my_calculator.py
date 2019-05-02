@@ -9,5 +9,6 @@ if __name__ == "__main__":
     if sys.argv[2] not in "+-*/":
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
-    str = ' '.join(sys.argv[1:])
-    print("{} = {}".format(str, eval(str)))
+    dic = {"+": add, "-": sub, "*": mul, "/": div}
+    a, op, b = int(sys.argv[1]), sys.argv[2], int(sys.argv[3])
+    print("{} = {}".format(' '.join(sys.argv[1:]), dic[op](a, b)))
