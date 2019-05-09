@@ -5,8 +5,8 @@ def roman_to_int(roman_string):
         n = 0
         prev = 0
         for c in roman_string:
-            if (d[c] > prev):
-                n = d[c] - n
+            if d[c] > prev:
+                n += d[c] - prev * 2
             else:
                 n += d[c]
             prev = d[c]
