@@ -30,9 +30,9 @@ void print_python_bytes(PyObject *p)
 	if (max > 10)
 		max = 10;
 	printf("  first %i bytes: ", max);
-	for (i = 0; i < size; i++)
+	for (i = 0; i < max; i++)
 	{
-		if (i != size - 1)
+		if (i != max - 1)
 			printf("%02hhx ", str[i]);
 		else
 			printf("%02hhx\n", str[i]);
