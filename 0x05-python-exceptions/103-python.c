@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <bytesobject.h>
+#include <float.h>
+
 /**
  * print_python_float - prints basic info about float object
  * @p: PyObject
@@ -12,6 +14,8 @@
  */
 void print_python_float(PyObject *p)
 {
+	double d = ((PyFloatObject *)(p))->ob_fval;
+
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
 	{
@@ -19,7 +23,10 @@ void print_python_float(PyObject *p)
 		fflush(stdout);
 		return;
 	}
-	printf("  value: %f\n", ((PyFloatObject *)(p))->ob_fval);
+	printf("  value: %.16g", d);
+	if (d == 0 || d == 1)
+		printf(".0");
+	printf("\n");
 	fflush(stdout);
 }
 
@@ -61,7 +68,7 @@ void print_python_bytes(PyObject *p)
 }
 
 /**
- * print_python_list_info - Print python list info
+ * print_python_list - Print python list info
  * @p: PyObject
  * Return: Nothing
  */
