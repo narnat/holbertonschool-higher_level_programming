@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Magic Class"""
-
-
 import math
+
+
 class MagicClass:
     """Magic Class"""
     def __init__(self, radius=0):
