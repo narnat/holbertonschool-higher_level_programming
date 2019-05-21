@@ -30,7 +30,7 @@ void print_python_float(PyObject *p)
 		fflush(stdout);
 		return;
 	}
-	s1 = PyOS_double_to_string(d, 'g', 16, Py_DTSF_ADD_DOT_0, NULL);
+	s1 = PyOS_double_to_string(d, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", s1);
 	fflush(stdout);
 }
