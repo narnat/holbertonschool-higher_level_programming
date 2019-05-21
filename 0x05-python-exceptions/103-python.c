@@ -1,8 +1,14 @@
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <listobject.h>
 #include <object.h>
+#include <pymacro.h>
 #include <floatobject.h>
 #include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <limits.h>
+#include <assert.h>
 #include <stdlib.h>
 #include <bytesobject.h>
 #include <float.h>
@@ -15,9 +21,7 @@
 void print_python_float(PyObject *p)
 {
 	double d = ((PyFloatObject *)(p))->ob_fval;
-	/* char str[54]; */
-	/* int len, j, i, ; */
-	/* char s1, s2, s3; */
+	char *s1;
 
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
@@ -26,14 +30,8 @@ void print_python_float(PyObject *p)
 		fflush(stdout);
 		return;
 	}
-	/* sprintf(str, "%.50f", d); */
-	/* len = strlen(str); */
-	/* s1 = strchr(str, '.'); */
-	/* printf("%s", str); */
-	if ((int) d == d)
-		printf("  value: %.1f\n", d);
-	else
-		printf("  value: %.16g\n", d);
+	s1 = PyOS_double_to_string(d, 'g', 16, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", s1);
 	fflush(stdout);
 }
 
