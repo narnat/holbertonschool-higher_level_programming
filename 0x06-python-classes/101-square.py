@@ -41,7 +41,10 @@ class Square:
 
     def my_print(self):
         """Prints square with #"""
-        for _ in range(self.position[1]):
+        if self.__size == 0:
+            print()
+            return
+        for _ in range(self.__position[1]):
             print()
         for _ in range(self.__size):
             for _ in range(self.__position[0]):
@@ -49,9 +52,18 @@ class Square:
             for _ in range(self.__size):
                 print("#", end="")
             print()
-        if self.__size == 0:
-            print()
-        return ""
 
     def __str__(self):
-        return str(self.my_print())
+        """String method"""
+        s = ""
+        if self.__size == 0:
+            s += '\n'
+        for _ in range(self.position[1]):
+            s += '\n'
+        for _ in range(self.__size):
+            for _ in range(self.__position[0]):
+                s += " "
+            for _ in range(self.__size):
+                s += '#'
+            s += '\n'
+        return s[:-1]
