@@ -70,4 +70,4 @@ class Square:
             for _ in range(self.__size):
                 s += '#'
             s += '\n'
-        return s[:-1].__str__()
+        return s[:-1]
