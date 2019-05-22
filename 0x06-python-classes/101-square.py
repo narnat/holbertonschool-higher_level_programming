@@ -61,7 +61,7 @@ class Square:
         """String method"""
         s = ""
         if self.__size == 0:
-            s += '\n'
+            return s
         for _ in range(self.position[1]):
             s += '\n'
         for _ in range(self.__size):
