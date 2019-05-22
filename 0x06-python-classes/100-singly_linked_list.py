@@ -47,7 +47,8 @@ class SinglyLinkedList():
             self.__head = new_node
 
         elif self.__head.data >= new_node.data:
-            new_node.next = self.__head
+            print("Caught")
+            new_node.next_node = self.__head
             self.__head = new_node
 
         else:
@@ -55,12 +56,13 @@ class SinglyLinkedList():
             while (current.next_node and
                    current.next_node.data < new_node.data):
                 current = current.next_node
+            print(value, current.data)
             new_node.next_node = current.next_node
             current.next_node = new_node
 
     def __str__(self):
         """String method of Linked List"""
-        s = ""
+        s = "-----\n"
         current = self.__head
         while current:
             s += str(current.data) + "\n"
