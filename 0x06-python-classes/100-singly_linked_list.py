@@ -29,8 +29,8 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """Setter for __next_node"""
-        # if not isinstance(value, Node) or value is not None:
-        #     raise TypeError("next_node must be a Node object")
+        if type(value) != Node or value is not None:
+            raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 
