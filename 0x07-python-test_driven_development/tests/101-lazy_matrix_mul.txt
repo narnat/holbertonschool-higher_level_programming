@@ -32,17 +32,22 @@ ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufu
 
 >>> print(matrix_mul([[1, 32]], [2, 3]))
 Traceback (most recent call last):
-
+ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
 
 
 >>> print(matrix_mul([[]], [2, 3]))
 Traceback (most recent call last):
-TypeError: m_b must be a list of lists
+ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
 
 
 >>> print(matrix_mul([[12, 21]], [[]]))
 Traceback (most recent call last):
-ValueError: m_b can't be empty
+ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+
+
+>>> print(matrix_mul([[1, 32]], [2, 3]))
+Traceback (most recent call last):
+
 
 
 >>> print(matrix_mul([["he", 21]], [[21, 26]]))
