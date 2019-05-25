@@ -1,6 +1,6 @@
-"""Matrix multiply module
+"""
 
-
+Matrix multiply module
 
 """
 
@@ -39,13 +39,13 @@ def matrix_mul(m_a, m_b):
     if any(len(row) != l_b for row in m_b):
         raise TypeError('each row of m_b must should be of the same size')
 
-    if len(m_a) != len(m_b[0]):
+    if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    # result = [[sum(a*b for a,b in zip(X_row,Y_col)) for Y_col in zip(*m_b)] for X_row in m_a]
-    result = [[0] * len(m_a)] * len(m_b[0])
+    result = [[0 for row in range(len(m_b[0]))] for col in range(len(m_a))]
+
     for i in range(len(m_a)):
         for j in range(len(m_b[0])):
-            for a in range(len(m_b)):
-                result += m_a[i][a] * m_b[a][j]
+            for k in range(len(m_b)):
+                result[i][j] += m_a[i][k] * m_b[k][j]
     return result
