@@ -85,3 +85,10 @@ Hello
 >>> text_indentation(s)
 Traceback (most recent call last):
 TypeError: text must be a string
+
+
+>>> text_indentation("hello?\n\n")
+hello?
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
