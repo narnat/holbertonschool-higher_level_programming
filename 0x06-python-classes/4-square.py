@@ -6,7 +6,8 @@ class Square:
     """Square class"""
     def __init__(self, size=0):
         """Constructor"""
-        self.size = size
+        #self.size = size
+        self.size(size)
 
     def area(self):
         """Area of a square"""
