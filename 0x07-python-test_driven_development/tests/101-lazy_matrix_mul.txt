@@ -45,11 +45,6 @@ Traceback (most recent call last):
 ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
 
 
->>> print(matrix_mul([[1, 32]], [2, 3]))
-Traceback (most recent call last):
-
-
-
 >>> print(matrix_mul([["he", 21]], [[21, 26]]))
 Traceback (most recent call last):
 TypeError: m_a should contain only integers or floats

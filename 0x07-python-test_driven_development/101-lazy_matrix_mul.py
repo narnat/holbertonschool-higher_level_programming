@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Matrix multiply module
 """
 import numpy
