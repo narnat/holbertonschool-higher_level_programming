@@ -31,7 +31,7 @@ TypeError: m_b must be a list of lists
 
 >>> print(matrix_mul([[]], [2, 3]))
 Traceback (most recent call last):
-ValueError: m_a can't be empty
+TypeError: m_b must be a list of lists
 
 
 >>> print(matrix_mul([[12, 21]], [[]]))
