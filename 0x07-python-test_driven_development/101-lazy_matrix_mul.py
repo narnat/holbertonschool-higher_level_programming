@@ -60,7 +60,4 @@ matching types dtype('<U21') dtype('<U21') dtype('<U21')")
 dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) \
 (size {} is different from {})".format(len(m_b), len(m_a[0])))
 
-
     return numpy.matmul(m_a, m_b)
-
-lazy_matrix_mul([[21, 3], [32, 2]], [[32, 2, 2], [32, 32, 32], [32,32 ,32]])
