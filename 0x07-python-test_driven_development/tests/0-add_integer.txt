@@ -29,3 +29,8 @@ b must be an integer
 
 >>> print(add_integer(float('inf'))
 89
+
+
+>>> print(add_integer(float('nan'))
+187
+
