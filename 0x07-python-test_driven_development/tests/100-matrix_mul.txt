@@ -64,3 +64,18 @@ TypeError: each row of m_b must should be of the same size
 Traceback (most recent call last):
 ValueError: m_a and m_b can't be multiplied
 
+
+>>> print(matrix_mul([[]], [[3, 3], [3, 2]]))
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+
+>>> print(matrix_mul())
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+
+>>> print(matrix_mul([[2, 3, 4], [3, 4, 2]]))
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
