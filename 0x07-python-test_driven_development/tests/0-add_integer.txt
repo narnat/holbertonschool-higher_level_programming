@@ -32,5 +32,7 @@ b must be an integer
 
 
 >>> print(add_integer(float('nan'), float('nan'))
-178
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+
 
