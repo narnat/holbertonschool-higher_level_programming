@@ -17,6 +17,26 @@ class TestMaxInteger(unittest.TestCase):
         """Test the same numbers"""
         self.assertEqual(max_integer([3, 3, 3]), 3)
 
+    def test_begin_check(self):
+        """Test the beginning numbers"""
+        self.assertEqual(max_integer([103, 3, 3]), 103)
+
+    def test_middle_check(self):
+        """Test the middle numbers"""
+        self.assertEqual(max_integer([3, 43, 3]), 43)
+
+    def test_one_neg_check(self):
+        """Test one negative numbers"""
+        self.assertEqual(max_integer([3, 43, -33]), 43)
+
+    def test_neg_check(self):
+        """Test only negative numbers"""
+        self.assertEqual(max_integer([-3, -43, -33]), -3)
+
+    def test_one_check(self):
+        """Test only one number"""
+        self.assertEqual(max_integer([-3]), -3)
+
     def test_empty_check(self):
         """Test empty list"""
         self.assertFalse(max_integer([]))
