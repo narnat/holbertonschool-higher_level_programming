@@ -31,6 +31,6 @@ b must be an integer
 89
 
 
->>> print(add_integer(float('nan'))
-187
+>>> print(add_integer(float('nan'), float('nan'))
+178
 
