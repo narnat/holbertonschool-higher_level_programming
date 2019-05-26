@@ -21,15 +21,6 @@ class TestMaxInteger(unittest.TestCase):
         """Test empty list"""
         self.assertFalse(max_integer([]))
 
-    def test_none_check(self):
-        """Test None"""
-        self.assertEqual(max_integer(None), None)
-
-    def test_err_check(self):
-        """Test Dictionary"""
-        with self.assertRaises(TypeError):
-            max_integer({'key' : "hello", 'how': "no"})
-
     def test_non_integer_check(self):
         """Test list with non integer elements"""
         with self.assertRaises(TypeError):
