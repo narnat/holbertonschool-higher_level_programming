@@ -37,7 +37,7 @@ ValueError: shapes (1,0) and (2,0) not aligned: 2 (dim 1) != 0 (dim 0)
 
 >>> print(matrix_mul([[12, 21]], [[]]))
 Traceback (most recent call last):
-ValueError: shapes (1,2) and (1,0) not aligned: 2 (dim 1) != 0 (dim 0)
+ValueError: shapes (1,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
 
 
 >>> print(matrix_mul([["he", 21]], [[21, 26]]))
@@ -63,5 +63,5 @@ TypeError: setting an array element with a sequence.
 
 >>> print(matrix_mul([[312, 21, 2], [1, 43, -3]], [[21, 26], [2, 1]]))
 Traceback (most recent call last):
-ValueError: shapes (2,3) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
 
