@@ -1,72 +1,67 @@
->>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
 
 >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
-[[7, 10], [15, 22]]
+[[ 7 10]
+ [15 22]]
 
 
 >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
-[[13, 16]]
-
+[[13 16]]
 
 >>> print(matrix_mul(32, 12))
 Traceback (most recent call last):
-ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+ValueError: Scalar operands are not allowed, use '*' instead
 
 
 >>> print(matrix_mul([1, 32], 12))
 Traceback (most recent call last):
-ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
-
-
-
->>> print(matrix_mul([1, 32], [2, 3]))
-Traceback (most recent call last):
-ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+ValueError: Scalar operands are not allowed, use '*' instead
 
 
 >>> print(matrix_mul([[1, 32]], [2, 3]))
 Traceback (most recent call last):
-ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+ValueError: shapes (1,2) and (2,0) not aligned: 2 (dim 1) != 0 (dim 0)
 
 
 >>> print(matrix_mul([[1, 32]], [2, 3]))
 Traceback (most recent call last):
-ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+ValueError: shapes (1,2) and (2,0) not aligned: 2 (dim 1) != 0 (dim 0)
+
 
 
 >>> print(matrix_mul([[]], [2, 3]))
 Traceback (most recent call last):
-ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+ValueError: shapes (1,0) and (2,0) not aligned: 2 (dim 1) != 0 (dim 0)
 
 
 >>> print(matrix_mul([[12, 21]], [[]]))
 Traceback (most recent call last):
-ValueError: matmul: Input operand 1 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+ValueError: shapes (1,2) and (1,0) not aligned: 2 (dim 1) != 0 (dim 0)
 
 
 >>> print(matrix_mul([["he", 21]], [[21, 26]]))
 Traceback (most recent call last):
-TypeError: m_a should contain only integers or floats
+TypeError: invalid data type for einsum
 
 
 
 >>> print(matrix_mul([[312, 21]], [["Hi", 26]]))
 Traceback (most recent call last):
-TypeError: m_b should contain only integers or floats
+TypeError: invalid data type for einsum
 
 
 >>> print(matrix_mul([[312, 21], [1, 43, -3]], [[21, 26]]))
 Traceback (most recent call last):
-TypeError: each row of m_a must should be of the same size
+TypeError: setting an array element with a sequence.
 
 
 >>> print(matrix_mul([[312, 21, 2], [1, 43, -3]], [[21, 26], [2, 1, 21, 21]]))
 Traceback (most recent call last):
-TypeError: each row of m_b must should be of the same size
+TypeError: setting an array element with a sequence.
 
 
 >>> print(matrix_mul([[312, 21, 2], [1, 43, -3]], [[21, 26], [2, 1]]))
 Traceback (most recent call last):
-ValueError: m_a and m_b can't be multiplied
+ValueError: shapes (2,3) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
 

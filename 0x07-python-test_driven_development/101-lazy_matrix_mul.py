@@ -14,12 +14,11 @@ def lazy_matrix_mul(m_a, m_b):
 
     if any(type(i) != list for i in m_a):
         raise ValueError("shapes ({},{}) and ({},{}) not aligned: 0 (dim 1)\
- != 2 (dim 0)".format(len(m_a), len(m_a[0])), len(m_b), len(m_b[0]))
+ != 2 (dim 0)".format(len(m_a), 0, len(m_b), len(m_b[0])))
 
     if any(type(i) != list for i in m_b):
         raise ValueError("shapes ({},{}) and ({},{}) not aligned: 2 (dim 1)\
- != 0 (dim 0)".format(len(m_a), len(m_a[0])), len(m_b), len(m_b[0]))
-
+ != 0 (dim 0)".format(len(m_a), len(m_a[0]), len(m_b), 0))
 
     if any(not i for i in m_a):
         raise ValueError("shapes ({},{}) and ({},{}) not aligned: 0 (dim 1)\
@@ -27,7 +26,7 @@ def lazy_matrix_mul(m_a, m_b):
 
     if any(not i for i in m_b):
         raise ValueError("shapes ({},{}) and ({},{}) not aligned: 2 (dim 1)\
- != 0 (dim 0)".format(len(m_a), len(m_a[0])), len(m_b), len(m_b[0]))
+ != 0 (dim 0)".format(len(m_a), len(m_a[0]), len(m_b), len(m_b[0])))
 
     if any(any(type(j) != int and type(j) != float for j in i) for i in m_a):
         raise TypeError("invalid data type for einsum")
@@ -45,5 +44,6 @@ def lazy_matrix_mul(m_a, m_b):
 
     if len(m_a[0]) != len(m_b):
         raise ValueError("shapes ({},{}) and ({},{}) not aligned: 0 (dim 1)\
- != 2 (dim 0)".format(len(m_a), len(m_a[0])), len(m_b), len(m_b[0]))
+ != 2 (dim 0)".format(len(m_a), len(m_a[0]), len(m_b), len(m_b[0])))
     return numpy.matmul(m_a, m_b)
+
