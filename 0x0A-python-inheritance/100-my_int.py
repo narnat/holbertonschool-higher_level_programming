@@ -7,8 +7,8 @@ class MyInt(int):
 
     def __eq__(self, other):
         """Equal method"""
-        return (str(self) != str(self))
+        return super().__ne__(self)
 
     def __ne__(self, other):
         """Not equal method"""
-        return (str(self) == str(self))
+        return super().__eq__(self)
