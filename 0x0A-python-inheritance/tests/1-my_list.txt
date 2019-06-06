@@ -61,4 +61,6 @@ TypeError: unorderable types: int() < NoneType()
 >>> my_list.print_sorted()
 [-inf, -32341, 443, 342334, 56785323234645, inf]
 
-
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
