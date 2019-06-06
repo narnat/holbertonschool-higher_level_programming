@@ -6,6 +6,8 @@ from math import factorial as fc
 def pascal_triangle(n):
     """Pascal Triangle"""
     a = []
+    if n <= 0:
+        return a
     for i in range(n):
         b = []
         for j in range(i + 1):
