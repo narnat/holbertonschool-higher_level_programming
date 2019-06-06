@@ -4,6 +4,10 @@
 
 def append_after(filename="", search_string="", new_string=""):
     """Search and update"""
+    if None in (search_string, new_string):
+        return
+    if type(search_string) != str or type(new_string) !=str:
+        return
     with open(filename, 'r') as f:
         s = f.readlines()
 
