@@ -9,4 +9,4 @@ def add_attribute(cls, name, value):
     if hasattr(cls, "__slots__"):
         if name not in cls.__slots__:
             raise TypeError("can't add new attribute")
-    cls.name = value
+    setattr(cls, name, value)
