@@ -4,7 +4,6 @@ import signal
 from sys import stdin
 
 
-
 def printer(size, d):
     """Printer function"""
     a = sorted(d.keys())
@@ -14,15 +13,16 @@ def printer(size, d):
             print("{}: {}".format(i, d[i]))
 
 size = 0
-d = {"200": 0, "301": 0, "400": 0, "401": 0, \
+d = {"200": 0, "301": 0, "400": 0, "401": 0,
      "403": 0, "404": 0, "405": 0, "500": 0}
+
 
 def handler(signum, frame):
     printer(size, d)
 
 counter = 1
 signal.signal(signal.SIGINT, handler)
-#with open(0) as f:
+# with open(0) as f:
 for line in stdin:
     arr = line.split()
     size += int(arr[-1])
@@ -30,5 +30,3 @@ for line in stdin:
     if counter % 10 == 0:
         printer(size, d)
     counter += 1
-        
-        
