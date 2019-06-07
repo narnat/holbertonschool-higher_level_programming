@@ -16,16 +16,25 @@ if __name__ == '__main__':
          "403": 0, "404": 0, "405": 0, "500": 0}
 
 
-    counter = 1
+    counter = 0
     try:
         with open(0) as f:
             for line in f:
+                counter += 1
                 arr = line.split()
-                size += int(arr[-1])
-                d[arr[-2]] += 1
+                try:
+                    size += int(arr[-1])
+                except:
+                    pass
+                try:
+                    st = arr[-2]
+                    if st in d:
+                        d[st] += 1
+                except:
+                    pass
                 if counter % 10 == 0:
                     printer(size, d)
-                counter += 1
+            printer(size, d)
     except KeyboardInterrupt:
         printer(size, d)
         raise
