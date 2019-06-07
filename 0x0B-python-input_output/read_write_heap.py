@@ -80,10 +80,7 @@ for line in maps_file:
 
     try:
         mem_file.seek(addr_start + i)
-        if write_string == "":
-            mem_file.write(bytes(0, "ASCII"))
-        else:
-            mem_file.write(bytes(write_string, "ASCII"))
+        mem_file.write(bytes(write_string+'\0', "ASCII"))
         print("***Done***")
     except:
         print("Error")
