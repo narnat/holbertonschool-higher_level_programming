@@ -16,12 +16,13 @@ class Student:
         if attrs is None:
             return self.__dict__
         d = {}
-        if type(attrs) == list:
+        if type(attrs) == list and all(type(i) == str for i in attrs):
             for el in attrs:
-                if type(el) == str and el in self.__dict__:
+                if el in self.__dict__:
                     d[el] = self.__dict__[el]
             return d
 
     def reload_from_json(self, json):
         """Reloads JSON file"""
-        self.__dict__ = json
+        for keys in json:
+            self.__dict__[keys] = json[keys]
