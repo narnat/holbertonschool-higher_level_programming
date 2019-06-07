@@ -9,15 +9,33 @@
 import sys
 
 
-def error():
-    print('Usage: read_write_heap.py pid search_string replace_string')
+# def error():
+#     print('Usage: read_write_heap.py pid search_string replace_string')
+#     sys.exit(1)
+
+# if len(sys.argv) != 4 or int(sys.argv[1]) <= 0:
+#     error()
+# pid = int(sys.argv[1])
+
+# search_string, write_string = sys.argv[2:]
+
+def print_usage_and_exit():
+    print('Usage: {} pid search write'.format(sys.argv[0]))
     sys.exit(1)
 
-if len(sys.argv) != 4 or int(sys.argv[1]) <= 0:
-    error()
-pid = int(sys.argv[1])
+if len(sys.argv) != 4:
+    print_usage_and_exit()
 
-search_string, write_string = sys.argv[2:]
+# get the pid from args
+pid = int(sys.argv[1])
+if pid <= 0:
+    print_usage_and_exit()
+search_string = str(sys.argv[2])
+if search_string == "":
+    print_usage_and_exit()
+write_string = str(sys.argv[3])
+if search_string == "":
+    print_usage_and_exit()
 
 maps = "/proc/{}/maps".format(pid)
 mem = "/proc/{}/mem".format(pid)
