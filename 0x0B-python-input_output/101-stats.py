@@ -25,9 +25,12 @@ if __name__ == '__main__':
                     size += int(arr[-1])
                 except:
                     pass
-                st = arr[-2]
-                if st in d:
-                    d[st] += 1
+                try:
+                    st = arr[-2]
+                    if st in d:
+                        d[st] += 1
+                except:
+                    pass
                 if counter % 10 == 0:
                     printer(size, d)
             printer(size, d)
