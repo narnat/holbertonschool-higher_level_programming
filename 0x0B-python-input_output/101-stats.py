@@ -21,16 +21,9 @@ if __name__ == '__main__':
             for line in f:
                 counter += 1
                 arr = line.split()
-                try:
-                    size += int(arr[-1])
-                except:
-                    pass
-                try:
-                    st = arr[-2]
-                    if st in d:
-                        d[st] += 1
-                except:
-                    pass
+                size += int(arr[-1])
+                st = arr[-2]
+                d[st] += 1
                 if counter % 10 == 0:
                     printer(size, d)
             printer(size, d)
