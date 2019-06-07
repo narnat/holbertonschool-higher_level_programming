@@ -2,7 +2,8 @@
 """
    Heap modifier
    Usage: read_write_heap.py pid search_string replace_string
-   Src: https://blog.holbertonschool.com/hack-the-virtual-memory-c-strings-proc/
+   Src:
+     https://blog.holbertonschool.com/hack-the-virtual-memory-c-strings-proc/
    Removed some comments
 """
 import sys
@@ -39,7 +40,6 @@ for line in maps_file:
         print("{} does not have read/write permission".format(pathname))
         maps_file.close()
         exit(0)
-
 
     addr = addr.split("-")
     if len(addr) != 2:
