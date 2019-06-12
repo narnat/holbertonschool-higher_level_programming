@@ -28,7 +28,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """To json the list of dictionaries"""
-        if list_dictionaries in (None, []):
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         # if not isinstance(list_dictionaries, list) or\
         #    not all(isinstance(d, dict) for d in list_dictionaries):
