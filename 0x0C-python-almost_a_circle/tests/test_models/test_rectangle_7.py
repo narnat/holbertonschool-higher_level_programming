@@ -8,6 +8,7 @@ from models.base import Base
 
 
 class TestRectangleClass_Display(unittest.TestCase):
+
     """Test cases for ractangle, task 7"""
 
     def tearDown(self):
@@ -29,4 +30,3 @@ class TestRectangleClass_Display(unittest.TestCase):
         with redirect_stdout(f):
             r1.display()
         self.assertEqual(f.getvalue(), s)
-

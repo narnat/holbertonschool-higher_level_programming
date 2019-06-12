@@ -8,6 +8,7 @@ from contextlib import redirect_stdout
 
 
 class TestRectangleClass_Str(unittest.TestCase):
+
     """Test cases for ractangle, task 6"""
 
     def setUp(self):

@@ -7,7 +7,7 @@ import io
 from contextlib import redirect_stdout
 
 
-class TestRectangleClass(unittest.TestCase):
+class TestRectangleClass_displays(unittest.TestCase):
 
     """Test cases for ractangle, task 5"""
 

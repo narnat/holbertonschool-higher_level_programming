@@ -8,17 +8,17 @@ from contextlib import redirect_stdout
 
 
 class TestRectangleClass_Updates(unittest.TestCase):
+
     """Test cases for ractangle, task 9"""
 
-    def tearDown(self):
+    def setUp(self):
         """Teardown"""
         Base.reset()
 
     def test_args_order(self):
         """Checks correct order of arguments"""
-        Base.reset()
         f = io.StringIO()
-        s = "[Rectangle] (1) 10/10 - 10/1"
+        s = "[Rectangle] (1) 10/10 - 10/89"
         r1 = Rectangle(10, 10, 10, 10)
         r1.update(height=89)
         with redirect_stdout(f):
@@ -27,14 +27,14 @@ class TestRectangleClass_Updates(unittest.TestCase):
 
         r1.update(width=1, x=2)
         f = io.StringIO()
-        s = "[Rectangle] (1) 2/10 - 1/1"
+        s = "[Rectangle] (1) 2/10 - 1/89"
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
 
         r1.update(y=1, width=2, x=3, id=89)
         f = io.StringIO()
-        s = "[Rectangle] (89) 3/1 - 2/1"
+        s = "[Rectangle] (89) 3/1 - 2/89"
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
@@ -45,4 +45,3 @@ class TestRectangleClass_Updates(unittest.TestCase):
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
-    

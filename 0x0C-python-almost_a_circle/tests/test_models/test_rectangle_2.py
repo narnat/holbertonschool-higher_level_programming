@@ -7,9 +7,11 @@ from models.base import Base
 
 class TestRectangleClass(unittest.TestCase):
 
-    """Test cases for ractangle, task 2"""
+    """Test cases for ractangle, task 2
+    line - 100
+    """
 
-    def tearDown(self):
+    def setUp(self):
         """Teardown"""
         Base.reset()
 
@@ -21,9 +23,9 @@ class TestRectangleClass(unittest.TestCase):
     def test_ids(self):
         """Test valid ids"""
         r2 = Rectangle(32, 2)
-        self.assertEqual(r2.id, 2)
+        self.assertEqual(r2.id, 1)
         r3 = Rectangle(7, 2)
-        self.assertEqual(r3.id, 3)
+        self.assertEqual(r3.id, 2)
         r4 = Rectangle(32, 3, 0, 0, 77)
         self.assertEqual(r4.id, 77)
 
@@ -44,31 +46,31 @@ class TestRectangleClass(unittest.TestCase):
         """Tests default params"""
         r8 = Rectangle(32, 32, 13)
         self.assertEqual([r8.width, r8.height, r8.x, r8.y, r8.id],
-                         [32, 32, 13, 0, 5])
+                         [32, 32, 13, 0, 1])
 
-    def test_params_private_width(self):
-        """Checks if width is private"""
-        with self.assertRaises(AttributeError):
-            r = Rectangle(32, 32)
-            print(r.__width)
+    # def test_params_private_width(self):
+    #     """Checks if width is private"""
+    #     with self.assertRaises(AttributeError):
+    #         r = Rectangle(32, 32)
+    #         print(r.width)
 
-    def test_params_private_height(self):
-        """Checks if height is private"""
-        with self.assertRaises(AttributeError):
-            r = Rectangle(32, 32)
-            print(r.__height)
+    # def test_params_private_height(self):
+    #     """Checks if height is private"""
+    #     with self.assertRaises(AttributeError):
+    #         r = Rectangle(32, 32)
+    #         print(r.height)
 
-    def test_params_private_x(self):
-        """Checks if x is private"""
-        with self.assertRaises(AttributeError):
-            r = Rectangle(32, 32)
-            print(r.__x)
+    # def test_params_private_x(self):
+    #     """Checks if x is private"""
+    #     with self.assertRaises(AttributeError):
+    #         r = Rectangle(32, 32)
+    #         print(r.x)
 
-    def test_params_private_y(self):
-        """Checks if y is private"""
-        with self.assertRaises(AttributeError):
-            r = Rectangle(32, 32)
-            print(r.__y)
+    # def test_params_private_y(self):
+    #     """Checks if y is private"""
+    #     with self.assertRaises(AttributeError):
+    #         r = Rectangle(32, 32)
+    #         print(r.y)
 
     def test_params_setters(self):
         """Check all setters"""

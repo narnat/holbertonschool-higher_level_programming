@@ -5,11 +5,11 @@ from models.rectangle import Rectangle
 from models.base import Base
 
 
-class TestRectangleClass(unittest.TestCase):
+class TestRectangleClass_area(unittest.TestCase):
 
     """Test cases for ractangle, task 3"""
 
-    def tearDown(self):
+    def setUp(self):
         """Teardown"""
         Base.reset()
 

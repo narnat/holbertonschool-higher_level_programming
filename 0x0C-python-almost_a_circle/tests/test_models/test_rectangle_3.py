@@ -5,7 +5,7 @@ from models.rectangle import Rectangle
 from models.base import Base
 
 
-class TestRectangleClass(unittest.TestCase):
+class TestRectangleClass_validate(unittest.TestCase):
 
     """Test cases for ractangle, task 3"""
 
@@ -14,6 +14,7 @@ class TestRectangleClass(unittest.TestCase):
             String
 ****************************************
     """
+
     def tearDown(self):
         """Teardown"""
         Base.reset()
