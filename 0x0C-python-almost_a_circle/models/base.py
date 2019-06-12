@@ -56,9 +56,14 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Creates an object"""
-        a = cls(32, 3)
-        a.update(**dictionary)
-        return a
+        if type(cls) == "Rectangle":
+            a = cls(32, 3)
+            a.update(**dictionary)
+            return a
+        if type(cls) == "Square":
+            a = cls(32)
+            a.update(**dictionary)
+            return a
 
     @classmethod
     def load_from_file(cls):
