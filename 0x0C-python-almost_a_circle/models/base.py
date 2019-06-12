@@ -30,10 +30,9 @@ class Base:
         """Covert to json string"""
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        if type(list_dictionaries) != list or \
-           any(type(d) != dict for d in list_dictionaries):
-            return "[]"
-        return json.dumps(list_dictionaries)
+        if type(list_dictionaries) == list or \
+           all(type(d) == dict for d in list_dictionaries):
+            return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
