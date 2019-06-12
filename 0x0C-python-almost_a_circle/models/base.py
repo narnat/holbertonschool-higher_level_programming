@@ -30,7 +30,7 @@ class Base:
         """Covert to json string"""
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        if type(list_dictionaries) == list or \
+        if type(list_dictionaries) == list and \
            all(type(d) == dict for d in list_dictionaries):
             return json.dumps(list_dictionaries)
 
