@@ -59,10 +59,9 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Creates an object"""
-        if issubclass(cls, Base):
-            a = cls(32, 3)
-            a.update(**dictionary)
-            return a
+        a = cls(32, 3)
+        a.update(**dictionary)
+        return a
 
     @classmethod
     def load_from_file(cls):
