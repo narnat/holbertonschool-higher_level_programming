@@ -3,8 +3,11 @@
 from models.rectangle import Rectangle
 from models.base import Base
 
+
 class Square(Rectangle):
+
     """Sqaure class"""
+
     def __init__(self, size, x=0, y=0, id=None):
         """Constractor"""
         super().__init__(size, size, x, y, id)
@@ -12,7 +15,7 @@ class Square(Rectangle):
     def __str__(self):
         """String method for Rectangle class"""
         s = "[Square] ({}) {}/{} - {}"\
-        .format(self.id, self.x, self.y, self.width)
+            .format(self.id, self.x, self.y, self.width)
         return s
 
     @property
@@ -45,5 +48,3 @@ class Square(Rectangle):
         d["size"] = d["width"]
         del d["width"], d["height"]
         return d
-        
-        
