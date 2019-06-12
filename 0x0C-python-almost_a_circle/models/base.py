@@ -27,10 +27,12 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Covert to json string"""
-        if list_dictionaries:
+        """Takes a list of dicts and changes it to a json string
+        """
+        if list_dictionaries is None or not list_dictionaries:
+            return "[]"
+        else:
             return json.dumps(list_dictionaries)
-        return "[]"
 
     @classmethod
     def save_to_file(cls, list_objs):
