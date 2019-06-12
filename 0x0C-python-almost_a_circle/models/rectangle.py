@@ -4,6 +4,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
+
     """Rectangle class which inherits from Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -82,7 +83,7 @@ class Rectangle(Base):
     def __str__(self):
         """String method for Rectangle class"""
         s = "[Rectangle] ({}) {}/{} - {}/{}"\
-        .format(self.id, self.x, self.y, self.width, self.height)
+            .format(self.id, self.x, self.y, self.width, self.height)
         return s
 
     def update(self, *args, **kwargs):
