@@ -37,8 +37,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Save json to file"""
-        if list_objs is None or not type(list_objs) == list) \
-           or not all(type(j) == Base for j in list_objs):
+        if list_objs is None or not type(list_objs) == list or not all(type(j) == Base for j in list_objs):
             with open(cls.__name__ + ".json", "w") as file:
                 file.write("[]")
         else:
