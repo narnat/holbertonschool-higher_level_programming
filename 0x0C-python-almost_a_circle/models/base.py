@@ -30,7 +30,7 @@ class Base:
         """To json the list of dictionaries"""
         if list_dictionaries in (None, []):
             return "[]"
-        if not isinstance(list_dictionaries, list) and\
+        if not isinstance(list_dictionaries, list) or\
            not all(isinstance(d, dict) for d in list_dictionaries):
             return "[]"
         return json.dumps(list_dictionaries)
