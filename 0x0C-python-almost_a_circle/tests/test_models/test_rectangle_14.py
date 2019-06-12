@@ -18,7 +18,7 @@ class TestSquareClass_dict(unittest.TestCase):
 
     def test_dict(self):
         """Test dictionary"""
-        d = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
-        r1 = Rectangle(10, 2, 1, 9)
+        d = {'id': 1, 'x': 1, 'size': 10, 'y': 9}
+        r1 = Square(10, 1, 9)
         r1_dictionary = r1.to_dictionary()
         self.assertEqual(d, r1_dictionary)
