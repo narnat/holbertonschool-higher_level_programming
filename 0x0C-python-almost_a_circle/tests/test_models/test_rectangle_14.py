@@ -21,4 +21,11 @@ class TestSquareClass_dict(unittest.TestCase):
         d = {'id': 1, 'x': 1, 'size': 10, 'y': 9}
         r1 = Square(10, 1, 9)
         r1_dictionary = r1.to_dictionary()
+        self.assertTrue(isinstance(r1_dictionary, dict))
         self.assertEqual(d, r1_dictionary)
+
+    def test_exceptions(self):
+        """Test exceptions"""
+        s1 = Square(10, 2, 1)
+        with self.assertRaises(TypeError):
+            s1_dictionary = s1.to_dictionary(323232)

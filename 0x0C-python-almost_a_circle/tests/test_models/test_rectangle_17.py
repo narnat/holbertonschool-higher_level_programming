@@ -41,3 +41,24 @@ class TestBaseClass_to_json(unittest.TestCase):
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_output, [])
+
+        list_output = Rectangle.from_json_string(23)
+        self.assertEqual(list_output, [])
+
+    def test_exceptions(self):
+        """Test exceptions"""
+        with self.assertRaises(TypeError):
+            Rectangle.from_json_string()
+
+        with self.assertRaises(TypeError):
+            Rectangle.from_json_string(32, 443)
+
+        with self.assertRaises(TypeError):
+            Square.from_json_string()
+
+        with self.assertRaises(TypeError):
+            Square.from_json_string(32, 443)
+
+    # def test_classmethod(self):
+    #     """Checks class method"""
+    #     self.assertTrue(inspect.ismethod(Base.save_to_file))

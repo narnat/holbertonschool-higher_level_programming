@@ -78,5 +78,10 @@ class TestBaseClass(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(Base.__nb_objects)
 
+    def test_params_exceptions_args_six(self):
+        """Checks wrong number of arguments, six"""
+        with self.assertRaises(TypeError):
+            r = Base(2, 3, 23, 12, 234, 4)
+
 if __name__ == '__main__':
     unittest.main()

@@ -124,6 +124,16 @@
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ## 15. Square dictionary (square.py)             #
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-1. Test if arg is list of dicts
+1. Test if arg is a list of dicts
 2. Test with many dicts
 3. Test if the return object is str
+4. Convert to JSON and test
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 16. JSON string to file (square.py)           #
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+1. Test if the arg is list of instances
+2. Test if list_objs is None save empty list
+3. Test filename
+4. Test whether file is overwritten or created
+

@@ -18,6 +18,10 @@ class Square(Rectangle):
             .format(self.id, self.x, self.y, self.width)
         return s
 
+    def area(self):
+        """Returns area of the square"""
+        return self.width ** 2
+
     @property
     def size(self):
         """Getter for size"""

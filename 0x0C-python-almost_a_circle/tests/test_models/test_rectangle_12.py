@@ -168,3 +168,10 @@ class TestSquareleClass_size(unittest.TestCase):
             r1.update(21, 43, 43, s)
         except err as e:
             self.assertEqual((str(e)), "y" + msg)
+
+    def test_area(self):
+        """Test for area"""
+        s1 = Square(5)
+        self.assertEqual(s1.area(), 25)
+        s1.update(2, 4)
+        self.assertEqual(s1.area(), 16)

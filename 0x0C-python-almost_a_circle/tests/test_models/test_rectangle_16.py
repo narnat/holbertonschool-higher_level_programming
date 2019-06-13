@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Test cases for Square class"""
 import unittest
+import inspect
 from models.rectangle import Rectangle
 from models.base import Base
 from models.square import Square
@@ -85,3 +86,31 @@ class TestBaseClass_to_json(unittest.TestCase):
 
         with open(file, "r") as f:
             self.assertEqual(json.loads(f.read()), d)
+
+    def test_exceptions(self):
+        """Test Exceptions"""
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file(322, 323232)
+
+        with self.assertRaises(TypeError):
+            Square.save_to_file()
+
+        with self.assertRaises(TypeError):
+            Square.save_to_file(322, 323232)
+
+    def test_empty(self):
+        """Empty file"""
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_classmethod(self):
+        """Checks class method"""
+        self.assertTrue(inspect.ismethod(Base.save_to_file))

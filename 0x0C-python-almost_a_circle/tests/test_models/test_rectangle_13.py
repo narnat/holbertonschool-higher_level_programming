@@ -21,4 +21,11 @@ class TestRectangleClass_dict(unittest.TestCase):
         d = {'y': 9, 'id': 1, 'height': 2, 'width': 10, 'x': 1}
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
+        self.assertTrue(isinstance(r1_dictionary, dict))
         self.assertEqual(d, r1_dictionary)
+
+    def test_exceptions(self):
+        """Test exceptions"""
+        s1 = Rectangle(10, 2, 1)
+        with self.assertRaises(TypeError):
+            s1_dictionary = s1.to_dictionary(323232)
