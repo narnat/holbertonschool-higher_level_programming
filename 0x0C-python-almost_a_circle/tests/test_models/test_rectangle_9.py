@@ -45,3 +45,16 @@ class TestRectangleClass_Updates(unittest.TestCase):
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
+
+    def test_wrong_keywords(self):
+        """Test keywords"""
+        s1 = Rectangle(10, 2, 1)
+        s1.update(key=23, school=32)
+        self.assertEqual(getattr(s1, "key", 0), 0)
+        self.assertEqual(getattr(s1, "school", 0), 0)
+
+    def test_many_args(self):
+        """Test with too many arguments"""
+        r1 = Rectangle(10, 10)
+        r1.update(10, 10, 10, 10, 10, 10, 10, 10)
+        self.assertEqual(str(r1), "[Rectangle] (10) 10/10 - 10/10")

@@ -42,3 +42,12 @@ class TestSquareleClass_init(unittest.TestCase):
     def test_inheritence(self):
         """Tests if Square is child of Rectangle"""
         self.assertTrue(issubclass(Square, Rectangle))
+
+    def test_exceptions(self):
+        """Test exceptions"""
+        with self.assertRaises(TypeError):
+            s1 = Square(10, 2, 1, 32, 233232)
+
+        with self.assertRaises(TypeError):
+            s1 = Square()
+

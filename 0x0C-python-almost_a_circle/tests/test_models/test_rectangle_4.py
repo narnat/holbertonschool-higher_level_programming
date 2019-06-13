@@ -17,3 +17,11 @@ class TestRectangleClass_area(unittest.TestCase):
         """Simple area test"""
         r = Rectangle(32, 2)
         self.assertEqual(r.area(), 64)
+
+    def test_exceptions(self):
+        """Test exceptions"""
+        with self.assertRaises(TypeError):
+            s1 = Rectangle(10, 5)
+            s1.area(32343)
+
+            

@@ -175,3 +175,16 @@ class TestSquareleClass_size(unittest.TestCase):
         self.assertEqual(s1.area(), 25)
         s1.update(2, 4)
         self.assertEqual(s1.area(), 16)
+
+    def test_wrong_keywords(self):
+        """Test keywords"""
+        s1 = Square(10, 2, 1)
+        s1.update(key=23, school=32)
+        self.assertEqual(getattr(s1, "key", 0), 0)
+        self.assertEqual(getattr(s1, "school", 0), 0)
+
+    def test_many_args(self):
+        """Test with too many arguments"""
+        r1 = Square(10, 10)
+        r1.update(10, 10, 10, 10, 10, 10, 10, 10)
+        self.assertEqual(str(r1), "[Square] (10) 10/10 - 10")
