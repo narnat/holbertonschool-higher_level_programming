@@ -59,6 +59,17 @@ class TestBaseClass_to_json(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.from_json_string(32, 443)
 
-    # def test_classmethod(self):
-    #     """Checks class method"""
-    #     self.assertTrue(inspect.ismethod(Base.save_to_file))
+    def test_convert_empty_string(self):
+        """Checks from_jon_string"""
+        list_output = Rectangle.from_json_string("[]")
+        self.assertEqual(list_output, [])
+
+    def test_convert_return_(self):
+        """Checks from_jon_string"""
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertTrue(isinstance(list_output, list))

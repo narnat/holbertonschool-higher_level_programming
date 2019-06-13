@@ -101,3 +101,10 @@ class TestBaseClass_to_json(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Square.to_json_string(32, 323, 323, 32)
+
+    def test_json(self):
+        """Test of Base.to_json_string([ { 'id': 12 }]) returning a string"""
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertTrue(isinstance(json_dictionary, str))

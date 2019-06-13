@@ -50,4 +50,3 @@ class TestSquareleClass_init(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             s1 = Square()
-

@@ -23,5 +23,3 @@ class TestRectangleClass_area(unittest.TestCase):
         with self.assertRaises(TypeError):
             s1 = Rectangle(10, 5)
             s1.area(32343)
-
-            
