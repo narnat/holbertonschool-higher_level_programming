@@ -98,3 +98,35 @@ class TestRectangleClass(unittest.TestCase):
         """Checks wrong number of arguments, six"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 3, 23, 12, 234, 4)
+
+    def test_args_value_zero(self):
+        """Check valid value"""
+        msg = " must be > 0"
+        err = ValueError
+        try:
+            Rectangle(-10, 10)
+        except err as e:
+            self.assertEqual((str(e)), "width" + msg)
+        try:
+            Rectangle(10, -10)
+        except err as e:
+            self.assertEqual((str(e)), "height" + msg)
+
+        try:
+            Rectangle(0, 10)
+        except err as e:
+            self.assertEqual((str(e)), "width" + msg)
+        try:
+            Rectangle(10, 0)
+        except err as e:
+            self.assertEqual((str(e)), "height" + msg)
+
+        msg = " must be >= 0"
+        try:
+            Rectangle(10, 10, -2)
+        except err as e:
+            self.assertEqual((str(e)), "x" + msg)
+        try:
+            Rectangle(10, 10, 2, -3)
+        except err as e:
+            self.assertEqual((str(e)), "y" + msg)

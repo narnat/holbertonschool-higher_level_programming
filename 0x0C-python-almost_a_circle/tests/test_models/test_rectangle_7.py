@@ -32,6 +32,13 @@ class TestRectangleClass_Display(unittest.TestCase):
             r1.display()
         self.assertEqual(f.getvalue(), s)
 
+        f = io.StringIO()
+        s = ('\n' * 0) + (" " * 2 + '#' * 2 + '\n') * 3
+        r1 = Rectangle(2, 3, 2)
+        with redirect_stdout(f):
+            r1.display()
+        self.assertEqual(f.getvalue(), s)
+
     def test_draw(self):
         """Test square with the size of 1"""
         f = io.StringIO()

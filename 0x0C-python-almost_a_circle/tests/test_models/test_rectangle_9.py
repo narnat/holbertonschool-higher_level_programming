@@ -25,16 +25,24 @@ class TestRectangleClass_Updates(unittest.TestCase):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
 
+        f = io.StringIO()
+        s = "[Rectangle] (89) 10/10 - 10/10"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 89})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
         r1.update(width=1, x=2)
         f = io.StringIO()
-        s = "[Rectangle] (1) 2/10 - 1/89"
+        s = "[Rectangle] (89) 2/10 - 1/10"
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
 
         r1.update(y=1, width=2, x=3, id=89)
         f = io.StringIO()
-        s = "[Rectangle] (89) 3/1 - 2/89"
+        s = "[Rectangle] (89) 3/1 - 2/10"
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
@@ -42,6 +50,38 @@ class TestRectangleClass_Updates(unittest.TestCase):
         r1.update(x=1, height=2, y=3, width=4)
         f = io.StringIO()
         s = "[Rectangle] (89) 1/3 - 4/2"
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (89) 10/10 - 1/10"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 89, 'width': 1})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (88) 10/10 - 1/2"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 88, 'width': 1, 'height': 2})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (88) 3/10 - 1/2"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 88, 'width': 1, 'height': 2, 'x': 3})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (88) 3/4 - 1/2"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 88, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
         with redirect_stdout(f):
             print(r1, end="")
         self.assertEqual(f.getvalue(), s)
