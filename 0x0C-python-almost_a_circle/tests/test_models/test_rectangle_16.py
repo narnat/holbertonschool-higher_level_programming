@@ -114,3 +114,13 @@ class TestBaseClass_to_json(unittest.TestCase):
     def test_classmethod(self):
         """Checks class method"""
         self.assertTrue(inspect.ismethod(Base.save_to_file))
+
+    def test_notlist(self):
+        """Checks not list type"""
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file(32)
+
+    def test_notlist_ofobjs(self):
+        """Checks list of objs"""
+        with self.assertRaises(AttributeError):
+            Rectangle.save_to_file([32, 32])
