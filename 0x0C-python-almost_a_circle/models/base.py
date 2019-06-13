@@ -117,14 +117,16 @@ class Base:
         """Draws sqaures and rectangles"""
         for i in list_rectangles + list_squares:
             tt = turtle.Turtle()
-            turtle.shape("turtle")
-            # turtle.up()
-            # turtle.setpos(-338, 285)
-            # turtle.down()
-            tt = turtle.Turtle()
+            tt.shape("turtle")
+            turtle.bgcolor("black")
+            tt.fillcolor("white")
+            # turtle.color("white")
+            tt.begin_fill()
+            tt.pen(fillcolor="white", pencolor="red", pensize=2)
             for _ in range(2):
                 tt.forward(i.width)
                 tt.right(90)
                 tt.forward(i.height)
                 tt.right(90)
+            tt.end_fill()
             turtle.done()

@@ -101,3 +101,13 @@ class TestBaseClass_to_json(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Square.to_json_string(32, 323, 323, 32)
+
+    def test_notlist(self):
+        """Checks not list type"""
+        with self.assertRaises(TypeError):
+            Base.to_json_string(32)
+
+    def test_notlist_ofobjs(self):
+        """Checks list of objs"""
+        with self.assertRaises(AttributeError):
+            Base.to_json_string([32, 3])
