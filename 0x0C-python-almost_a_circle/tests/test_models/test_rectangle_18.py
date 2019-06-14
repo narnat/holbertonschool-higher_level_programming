@@ -49,3 +49,57 @@ class TestBaseClass_to_json(unittest.TestCase):
     def test_classmethod(self):
         """Checks class method"""
         self.assertTrue(inspect.ismethod(Base.create))
+
+    def test_create_rectangle(self):
+        """Test create"""
+        d = {'id': 89}
+        st = "[Rectangle] (89) 0/0 - 32/3"
+        r1 = Rectangle.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'width': 1}
+        st = "[Rectangle] (89) 0/0 - 1/3"
+        r1 = Rectangle.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'width': 1, 'height': 2}
+        st = "[Rectangle] (89) 0/0 - 1/2"
+        r1 = Rectangle.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'width': 1, 'x': 3}
+        st = "[Rectangle] (89) 3/0 - 1/3"
+        r1 = Rectangle.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        st = "[Rectangle] (89) 3/4 - 1/2"
+        r1 = Rectangle.create(**d)
+        self.assertEqual(str(r1), st)
+
+    def test_create_square(self):
+        """Test create"""
+        d = {'id': 89}
+        st = "[Square] (89) 0/0 - 32"
+        r1 = Square.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'size': 1}
+        st = "[Square] (89) 0/0 - 1"
+        r1 = Square.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'size': 1}
+        st = "[Square] (89) 0/0 - 1"
+        r1 = Square.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'size': 1, 'x': 3}
+        st = "[Square] (89) 3/0 - 1"
+        r1 = Square.create(**d)
+        self.assertEqual(str(r1), st)
+
+        d = {'id': 89, 'size': 1, 'x': 3, 'y': 4}
+        st = "[Square] (89) 3/4 - 1"
+        r1 = Square.create(**d)
+        self.assertEqual(str(r1), st)

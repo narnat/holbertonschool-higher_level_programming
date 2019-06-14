@@ -188,3 +188,27 @@ class TestSquareleClass_size(unittest.TestCase):
         r1 = Square(10, 10)
         r1.update(10, 10, 10, 10, 10, 10, 10, 10)
         self.assertEqual(str(r1), "[Square] (10) 10/10 - 10")
+
+    def test_args_value_zero_1(self):
+        """Check valid value"""
+        msg = " must be > 0"
+        err = ValueError
+        try:
+            Square(-10)
+        except err as e:
+            self.assertEqual((str(e)), "width" + msg)
+
+        try:
+            Square(0)
+        except err as e:
+            self.assertEqual((str(e)), "width" + msg)
+
+        msg = " must be >= 0"
+        try:
+            Square(10, -2)
+        except err as e:
+            self.assertEqual((str(e)), "x" + msg)
+        try:
+            Square(10, 2, -3)
+        except err as e:
+            self.assertEqual((str(e)), "y" + msg)

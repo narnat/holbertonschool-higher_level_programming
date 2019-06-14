@@ -22,6 +22,7 @@ class TestBaseClass_to_json(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(isinstance(json_dictionary, str))
         self.assertEqual([dictionary], json.loads(json_dictionary))
 
         r1 = Rectangle(10, 7, 2, 8)

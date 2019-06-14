@@ -39,6 +39,17 @@ class TestSquareleClass_init(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(s1._Square__size)
 
+    def test_attr_str(self):
+        """Test attr of Square, size should not created"""
+        with self.assertRaises(TypeError):
+            Square("1")
+
+        with self.assertRaises(TypeError):
+            Square(1, "1")
+
+        with self.assertRaises(TypeError):
+            Square(1, 2, "1")
+
     def test_inheritence(self):
         """Tests if Square is child of Rectangle"""
         self.assertTrue(issubclass(Square, Rectangle))

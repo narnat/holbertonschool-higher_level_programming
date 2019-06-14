@@ -103,11 +103,34 @@ class TestBaseClass_to_json(unittest.TestCase):
 
     def test_empty(self):
         """Empty file"""
+        filename = "Rectangle.json"
+        if os.path.isfile(filename):
+            os.remove(filename)
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
+        filename = "Square.json"
+        if os.path.isfile(filename):
+            os.remove(filename)
+
         Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+        filename = "Rectangle.json"
+        if os.path.isfile(filename):
+            os.remove(filename)
+
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+        filename = "Square.json"
+        if os.path.isfile(filename):
+            os.remove(filename)
+
+        Square.save_to_file([])
         with open("Square.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
