@@ -19,6 +19,11 @@ class TestRectangleClass_validate(unittest.TestCase):
         """Teardown"""
         Base.reset()
 
+    def test_rectangle_value(self):
+        """Test Rectangle"""
+        with self.assertRaises(ValueError):
+            Rectangle(32, 0)
+
     def test_params_str_width(self):
         """Check str as parameter"""
         with self.assertRaises(TypeError):

@@ -61,3 +61,17 @@ class TestSquareleClass_init(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             s1 = Square()
+
+    def test_attr_valuerr(self):
+        """Test attr of Square"""
+        with self.assertRaises(ValueError):
+            Square(-1)
+
+        with self.assertRaises(ValueError):
+            Square(1, -1)
+
+        with self.assertRaises(ValueError):
+            Square(1, 2, -1)
+
+        with self.assertRaises(ValueError):
+            Square(0)
