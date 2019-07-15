@@ -1,2 +1,2 @@
 -- Counts the number oof entries
-SELECT COUNT(`id`) FROM first_table;
+SELECT COUNT(*) WHERE id = 89 FROM first_table;
