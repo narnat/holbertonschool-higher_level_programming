@@ -1,4 +1,5 @@
--- A script that lists all shows without the genre Comedy in the database hbtn_0d_tvshows
+-- A script that lists all shows without the genre
+-- Comedy in the database hbtn_0d_tvshows
 SELECT DISTINCT tv_shows.title
 FROM tv_show_genres
 RIGHT JOIN tv_shows
