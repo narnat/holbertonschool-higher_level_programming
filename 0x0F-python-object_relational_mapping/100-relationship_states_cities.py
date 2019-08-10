@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""script that lists all City objects from the database hbtn_0e_101_usa"""
+"""Improve the files model_city.py and model_state.py, and save
+them as relationship_city.py and relationship_state.py"""
 import sys
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
@@ -13,7 +14,9 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    for state in session.query(State).order_by(State.id).all():
-        for city in state.cities:
-            print("{}: {} -> {}".format(city.id, city.name, state.name))
+    s1 = State(name='California')
+    c1 = City(name='San Francisco')
+    s1.cities.append(c1)
+    session.add_all([c1, s1])
+    session.commit()
     session.close()
