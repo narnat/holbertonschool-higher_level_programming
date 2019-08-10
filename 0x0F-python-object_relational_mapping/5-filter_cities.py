@@ -19,6 +19,4 @@ if __name__ == '__main__':
     ORDER BY cities.id
     """, (state,))
     r = db.fetchall()
-    l = len(r) - 1
-    for i, e in enumerate(r):
-        print(e[0], end="\n" if i == l else ", ")
+    print(", ".join([row[0] for row in r]))
