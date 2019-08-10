@@ -4,8 +4,8 @@ them as relationship_city.py and relationship_state.py"""
 import sys
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_state import State
+from relationship_city import City, Base
 
 
 if __name__ == "__main__":
