@@ -15,7 +15,7 @@ if __name__ == '__main__':
     FROM cities
     JOIN states
     ON state_id=states.id
-    WHERE states.name=%s
+    WHERE states.name LIKE BINARY %s
     ORDER BY cities.id
     """, (state,))
     r = db.fetchall()
