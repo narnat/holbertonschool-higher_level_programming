@@ -7,7 +7,7 @@ import MySQLdb
 
 if __name__ == '__main__':
     user, password, database = argv[1], argv[2], argv[3]
-    db = MySQLdb.connect(host="localhost", user=user,
+    db = MySQLdb.connect(host="localhost", user=user, port=3306,
                          passwd=password, db=database)
     db = db.cursor()
     db.execute("""SELECT * FROM states WHERE name REGEXP '^N' ORDER BY id""")
