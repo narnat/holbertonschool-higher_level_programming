@@ -2,7 +2,7 @@
 """Write a function that finds a peak in a list of unsorted integers."""
 
 
-def find_peak(list_of_integers):
+def find_peak_2(list_of_integers):
     """Function to find a peak in a list"""
     if list_of_integers == []:
         return None
@@ -18,3 +18,19 @@ def find_peak(list_of_integers):
             m -= 1
         else:
             return arr[m]
+
+
+def find_peak(list_of_integers):
+    """Function to find a peak in a list"""
+    if list_of_integers == []:
+        return None
+    p = 0
+    arr = list_of_integers
+    while True:
+        try:
+            if arr[p] > arr[p + 1]:
+                return arr[p]
+            else:
+                p += 1
+        except IndexError:
+            return arr[p]
