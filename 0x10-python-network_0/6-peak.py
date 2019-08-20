@@ -14,7 +14,7 @@ def peak_rec(arr, l, r):
     return peak_rec(arr, l, m)
 
 
-def find_peak_3(list_of_integers):
+def find_peak(list_of_integers):
     """Function to find a peak in a list"""
     if list_of_integers == []:
         return None
@@ -41,7 +41,7 @@ def find_peak_0(list_of_integers):
             return arr[m]
 
 
-def find_peak(list_of_integers):
+def find_peak_best(list_of_integers):
     """Function to find a peak in a list"""
     if list_of_integers == []:
         return None
