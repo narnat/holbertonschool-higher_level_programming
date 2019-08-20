@@ -5,7 +5,7 @@
 def peak_rec(arr, l, r):
     """Recursive way"""
     if l == r:
-        return l
+        return arr[l]
     if r - l == 1:
         return max(arr[r], arr[l])
     m = (r + l) // 2
@@ -23,7 +23,7 @@ def find_peak_3(list_of_integers):
     return peak_rec(arr, 0, l - 1)
 
 
-def find_peak(list_of_integers):
+def find_peak_0(list_of_integers):
     """Function to find a peak in a list"""
     if list_of_integers == []:
         return None
@@ -39,6 +39,22 @@ def find_peak(list_of_integers):
             m = m // 2
         else:
             return arr[m]
+
+
+def find_peak(list_of_integers):
+    """Function to find a peak in a list"""
+    if list_of_integers == []:
+        return None
+    l = len(list_of_integers)
+    m = l // 2
+    arr = list_of_integers
+    while True:
+        if m in (0, l - 1) or arr[m - 1] < arr[m] > arr[m + 1]:
+            return arr[m]
+        if arr[m] < arr[m + 1]:
+            m = (l + m) // 2
+        else:
+            m = m // 2
 
 
 def find_peak_2(list_of_integers):
