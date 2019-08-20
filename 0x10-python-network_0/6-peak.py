@@ -2,7 +2,28 @@
 """Write a function that finds a peak in a list of unsorted integers."""
 
 
+def peak_rec(arr, l, r):
+    """Recursive way"""
+    if l == r:
+        return l
+    if r - l == 1:
+        return max(arr[r], arr[l])
+    m = (r + l) // 2
+    if arr[m] < arr[m + 1]:
+        return peak_rec(arr, m + 1, r)
+    return peak_rec(arr, l, m)
+
+
 def find_peak(list_of_integers):
+    """Function to find a peak in a list"""
+    if list_of_integers == []:
+        return None
+    l = len(list_of_integers)
+    arr = list_of_integers
+    return peak_rec(arr, 0, l - 1)
+
+
+def find_peak_0(list_of_integers):
     """Function to find a peak in a list"""
     if list_of_integers == []:
         return None
@@ -30,7 +51,6 @@ def find_peak_2(list_of_integers):
         try:
             if arr[p] > arr[p + 1]:
                 return arr[p]
-            else:
-                p += 1
+            p += 1
         except IndexError:
             return arr[p]
