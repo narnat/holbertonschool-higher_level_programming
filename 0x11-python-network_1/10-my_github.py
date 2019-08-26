@@ -10,6 +10,6 @@ if __name__ == "__main__":
                      auth=(argv[1], argv[2]))
     if r.status_code == 200:
         j = r.json()
-        print(j['id'])
+        print(j.get('id'))
     else:
         print('None')

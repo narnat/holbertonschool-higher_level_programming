@@ -13,14 +13,14 @@ if __name__ == "__main__":
         r = requests.get('https://swapi.co/api/people/?search={}'.format(arg))
         j = r.json()
         if j:
-            l = j['results']
-            print('Number of results:', j['count'])
-            while j['next']:
-                r = requests.get(j['next'])
+            l = j.get('results')
+            print('Number of results:', j.get('count'))
+            while j.get('next'):
+                r = requests.get(j.get('next'))
                 j = r.json()
-                l += j['results']
+                l += j.get('results')
             for i in l:
-                print(i['name'])
+                print(i.get('name'))
         else:
             print('No result')
     except ValueError:
