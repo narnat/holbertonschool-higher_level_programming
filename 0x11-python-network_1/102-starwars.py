@@ -18,4 +18,5 @@ if __name__ == "__main__":
         print(i.get('name'))
         for a in i.get('films'):
             film = requests.get(a)
-            print('\t', film.json().get('title'), sep="")
+            print('{}: {}')
+            #print('\t', film.json().get('title'), sep="")
