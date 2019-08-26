@@ -14,8 +14,8 @@ if __name__ == "__main__":
         j = r.json()
         if j:
             print('Number of results:', j['count'])
-            for i in j['results']:
-                print(i['name'])
+            for i in j.get('results'):
+                print(i.get('name'))
         else:
             print('No result')
     except ValueError:
