@@ -11,4 +11,4 @@ if __name__ == "__main__":
     l = r.json()
     for i in range(10):
         print(l[i].get('sha'), l[i].get('commit')
-              .get('committer').get('name'), sep=": ")
+              .get('author').get('name'), sep=": ")
