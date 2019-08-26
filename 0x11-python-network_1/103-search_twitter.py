@@ -31,5 +31,5 @@ if __name__ == "__main__":
                                headers=search_headers, params=search_params)
     tweet_data = search_resp.json()
     for i in tweet_data.get('statuses'):
-        print('{} {} by {}'
+        print('[{}] {} by {}'
               .format(i.get('id'), i.get('text'), i.get('user').get('name')))
