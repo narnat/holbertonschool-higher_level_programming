@@ -24,12 +24,12 @@ if __name__ == "__main__":
 
     search_headers = {'Authorization': 'Bearer {}'.format(access_token)}
 
-    search_params = {'q': argv[3], 'count': 6}
+    search_params = {'q': argv[3]}
 #    search_params = {'q': argv[3], 'result_type': 'recent', 'count': 5}
     search_url = '{}1.1/search/tweets.json'.format(base_url)
     search_resp = requests.get(search_url,
                                headers=search_headers, params=search_params)
     tweet_data = search_resp.json()
-    for i in tweet_data.get('statuses'):
+    for i in tweet_data.get('statuses')[:5]:
         print('[{}] {} by {}'
               .format(i.get('id'), i.get('text'), i.get('user').get('name')))
