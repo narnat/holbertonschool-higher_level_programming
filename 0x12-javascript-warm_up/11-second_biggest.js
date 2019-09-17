@@ -9,6 +9,8 @@ if (process.argv.length < 4) {
     if (e > max) {
       second = max;
       max = e;
+    } else if (second < e) {
+      second = e;
     }
   });
   console.log(second);
