@@ -12,7 +12,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    s = session.query(State).order_by(State.id).first()
+    s = session.query(State).order_by(State.id).one()
     if s:
         print("{}: {}".format(s.id, s.name))
     else:

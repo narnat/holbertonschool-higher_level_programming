@@ -18,5 +18,6 @@ if __name__ == '__main__':
     WHERE states.name LIKE BINARY %s
     ORDER BY cities.id
     """, (state,))
+
     r = db.fetchall()
     print(", ".join([row[0] for row in r]))
