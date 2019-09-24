@@ -5,16 +5,13 @@ request(process.argv[2], function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
+    const res = JSON.parse(body).results;
     let count = 0;
-    if (process.argv[2] === 'http://swapi.co/api/films') {
-      const res = JSON.parse(body).results;
-      const char = '/18/';
-      res.forEach(e => {
-        if (e.characters.includes(char)) {
-          count++;
-        }
+    res.forEach(e => {
+      e.characters.forEach(ee => {
+        if (ee.includes('/18/')) count++;
       });
-    }
+    });
     console.log(count);
   }
 });
