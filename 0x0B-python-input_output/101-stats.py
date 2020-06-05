@@ -1,49 +1,39 @@
 #!/usr/bin/python3
-"""0x0B. Python - Input/Output, task 16. Log parsing"""
-
-
-import sys
-import os
-from collections import OrderedDict
+"""Log Parser"""
 
 if __name__ == '__main__':
-    path = '101-log.txt'
-    if os.path.exists(path):
-        os.remove(path)
 
-    line_no = 0
+    def printer(size, d):
+        """Printer function"""
+        a = sorted(d.keys())
+        print("File size: {:d}".format(size))
+        for i in a:
+            if d[i] != 0:
+                print("{}: {}".format(i, d[i]))
 
-    code_counts = OrderedDict()
-    code_counts['200'] = 0
-    code_counts['301'] = 0
-    code_counts['400'] = 0
-    code_counts['401'] = 0
-    code_counts['403'] = 0
-    code_counts['404'] = 0
-    code_counts['405'] = 0
-    code_counts['500'] = 0
+    size = 0
+    d = {"200": 0, "301": 0, "400": 0, "401": 0,
+         "403": 0, "404": 0, "405": 0, "500": 0}
 
+    counter = 0
     try:
-        while True:
-            with open(path, 'a', encoding='utf-8') as log:
-                for line in sys.stdin:
-                    line_no += 1
-                    log.write(line)
-                    tokens = line.split(' ')
-                    code = tokens[-2]
-                    code_counts[code] += 1
-                    if line_no % 10 == 0:
-                        break
-            if line_no % 10 == 0:
-                print("File size: {}".format(os.path.getsize('./' + path)))
-                for code in code_counts:
-                    if code_counts[code] > 0:
-                        print("{}: {}".format(code, code_counts[code]))
-
+        with open(0) as f:
+            for line in f:
+                counter += 1
+                arr = line.split()
+                try:
+                    size += int(arr[-1])
+                except:
+                    pass
+                try:
+                    st = arr[-2]
+                    if st in d:
+                        d[st] += 1
+                except:
+                    pass
+                if counter % 10 == 0:
+                    printer(size, d)
+            printer(size, d)
     except KeyboardInterrupt:
-        print("File size: {}".format(os.path.getsize('./' + path)))
-        for code in code_counts:
-            if code_counts[code] > 0:
-                print("{}: {}".format(code, code_counts[code]))
-        log.close()
+        printer(size, d)
         raise
